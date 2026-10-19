@@ -20,7 +20,7 @@
   --color-positive: #1E9E5A;
 
   --gradient-brand: linear-gradient(180deg, #12AA9E 0%, #4FC6BD 45%, #BFEBE7 80%, #E6F8F6 100%);
-  --gradient-hero: linear-gradient(180deg, #0E8A80 0%, #12AA9E 26%, #4FC6BD 52%, #BFEBE7 78%, #FFFFFF 94%);
+  --gradient-hero: linear-gradient(180deg, #0E8A80 0%, #13A295 14%, #25B8AB 28%, #6ED8CE 42%, #B8EFE9 54%, #E8FAF7 64%, #FFFFFF 74%, #FFFFFF 100%);
 }
 
 @layer base {
@@ -121,16 +121,16 @@
 
   /* Halftone dot globe, decorative layer behind hero heading */
   .halftone-globe {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1.4px, transparent 1.5px);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.24) 1.5px, transparent 1.6px);
     background-size: 22px 22px;
-    -webkit-mask-image: radial-gradient(ellipse 46% 44% at 50% 40%, #000 0%, #000 30%, transparent 72%);
-    mask-image: radial-gradient(ellipse 46% 44% at 50% 40%, #000 0%, #000 30%, transparent 72%);
+    -webkit-mask-image: radial-gradient(ellipse 56% 48% at 50% 36%, #000 0%, #000 42%, transparent 74%);
+    mask-image: radial-gradient(ellipse 56% 48% at 50% 36%, #000 0%, #000 42%, transparent 74%);
   }
 
   /* Fades the lower edge of media cards into the page background */
   .mask-fade-bottom {
-    -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 96%);
-    mask-image: linear-gradient(to bottom, #000 58%, transparent 96%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 96%);
+    mask-image: linear-gradient(to bottom, #000 60%, transparent 96%);
   }
 
   .marquee-track {
@@ -157,6 +157,56 @@
   .lift:hover {
     transform: translateY(-4px);
   }
+
+  /* Subtle floating micro-animations for hero 3D cards */
+  .hero-card-interactive {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+    will-change: transform;
+  }
+
+  .hero-card-interactive:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    z-index: 30;
+  }
+
+  .hero-card-float-center {
+    animation: hero-float-center 7s ease-in-out infinite;
+  }
+
+  .hero-card-float-left {
+    animation: hero-float-left 8s ease-in-out infinite 0.6s;
+  }
+
+  .hero-card-float-right {
+    animation: hero-float-right 8s ease-in-out infinite 1.2s;
+  }
+}
+
+@keyframes hero-float-center {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes hero-float-left {
+  0%, 100% {
+    transform: translateY(0) rotateY(12deg);
+  }
+  50% {
+    transform: translateY(-4px) rotateY(10deg);
+  }
+}
+
+@keyframes hero-float-right {
+  0%, 100% {
+    transform: translateY(0) rotateY(-12deg);
+  }
+  50% {
+    transform: translateY(-4px) rotateY(-10deg);
+  }
 }
 
 @keyframes marquee-scroll {
@@ -169,6 +219,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-card-float-center,
+  .hero-card-float-left,
+  .hero-card-float-right {
+    animation: none;
+  }
   .marquee-track {
     animation: none;
   }
