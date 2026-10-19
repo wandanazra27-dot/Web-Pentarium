@@ -7,8 +7,10 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-primary font-extrabold tracking-widest text-sm uppercase mb-3">Tentang Pentarium</p>
-            <h2 className="text-3xl lg:text-4xl font-black text-secondary mb-6 leading-tight">About Pentarium</h2>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary-dark font-bold text-xs uppercase tracking-wider mb-4 border border-primary/20">
+              02. About Pentarium
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-black text-secondary mb-6 leading-tight">Tentang Pentarium</h2>
             <p className="text-slate-600 mb-8 text-lg leading-relaxed">
               Formed specifically for IoT solution in Indonesia. PT. PENTARIUM DIGITAL NUSANTARA have skills and resources to be able to provide you solution for your digital problems. With our in-house expertise backed up by our strong principals, we are capable to deliver the solution to your problems in Information Technology, no matter how complex it is. We can assume responsibility all the way from design, software development, hardware, maintenance and most important is IoT solution.
               <br/><br/>
