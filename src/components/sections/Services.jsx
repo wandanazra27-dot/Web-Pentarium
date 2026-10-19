@@ -1,86 +1,126 @@
 import React from 'react';
-import { Smartphone, Satellite, Server, HardDrive, Monitor, Cpu } from 'lucide-react';
+import Reveal from '../ui/Reveal';
+import SectionCard from '../ui/SectionCard';
+
+const SERVICES = [
+  {
+    category: 'Software Development',
+    title: 'Mobile apps & web application',
+    desc: 'Develop mobile apps and web application, starting from requirement mapping, interface design, until the application runs on the client device.',
+    tags: ['LapakPOS', 'Antares', 'PentaQue', 'Emergency Button'],
+    note: 'LapakPOS mencatat transaksi toko, Antares collaborate dengan platform IoT, PentaQue untuk sistem antrean, Emergency Button melaporkan kondisi darurat ke rumah sakit terdekat.',
+    photo: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Papan sirkuit sebagai representasi pengembangan perangkat keras dan lunak',
+  },
+  {
+    category: 'IoT Solution',
+    title: 'LoRaWAN connectivity integration',
+    desc: 'We provide tools that could connected to BTS LoRaWAN owned by PT. Telekomunikasi Indonesia, covering Java Island, Sumatra and Bali.',
+    tags: ['LoRaWAN', 'Telkom Indonesia', 'Java', 'Sumatra', 'Bali'],
+    photo: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Jaringan konektivitas yang menjangkau wilayah Indonesia',
+  },
+  {
+    category: 'Platform',
+    title: 'Authorization reseller EMQX',
+    desc: 'We are legal agent of EMQX MQTT in Indonesia, selling and supporting the broker untuk ribuan perangkat IoT.',
+    tags: ['EMQX', 'MQTT Broker', 'License'],
+    partners: 'Telkom Indonesia, Antares',
+    photo: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Rack server untuk mengoperasikan broker MQTT',
+  },
+  {
+    category: 'Asset Management',
+    title: 'Digital maintenance system',
+    desc: 'We provide tools that could maintenance asset, tracking asset using RFID, from pencatatan aset sampai laporan pemeliharaan.',
+    tags: ['RFID', 'Asset Tracking', 'Maintenance'],
+    partners: 'Telkom Indonesia, Pertamina Drilling',
+    photo: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Tablet yang digunakan untuk mencatat aset dan pemeliharaan',
+  },
+];
+
+const Tag = ({ children }) => (
+  <span className="rounded-full bg-[#F3F3F3] px-3 py-1.5 text-[11px] font-medium tracking-tight text-ink-secondary">
+    {children}
+  </span>
+);
 
 export default function Services() {
   return (
-    <section id="layanan" className="py-20 lg:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-primary font-extrabold tracking-widest text-sm uppercase mb-3">Our Services</p>
-          <h2 className="text-3xl lg:text-4xl font-black text-secondary mb-6">Layanan Perusahaan</h2>
-          <p className="text-slate-600 text-lg">We provide cost effective and reliable solutions to all digital needs.</p>
-        </div>
+    <SectionCard id="layanan" containerClassName="mt-16 lg:mt-20" className="p-8 sm:p-12 lg:p-16">
+      <Reveal className="mx-auto max-w-2xl text-center">
+        <p className="text-[13px] font-medium uppercase tracking-[0.18em] text-brand-700">Our Services</p>
+        <h2 className="mt-4 text-[34px] font-semibold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[44px] lg:text-[52px]">
+          <span className="serif-italic">What We Create</span>
+          <br />
+          <span>for You</span>
+        </h2>
+      </Reveal>
 
-        <div className="space-y-12">
-          {/* Software Development */}
-          <div className="bg-slate-50 p-8 lg:p-12 rounded-3xl border border-slate-100">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
-                <Smartphone className="w-8 h-8" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-secondary">Software Development</h3>
-                <p className="text-slate-600">Develop Mobile Apps & Web Application</p>
-              </div>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 mb-6">
-              <h4 className="font-bold text-lg mb-3">Our Finished Mobile Apps Projects:</h4>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="bg-primary/10 text-primary font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">1</span>
-                  <span><strong>LapakPOS</strong> is a mobile application to record transactions at store.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="bg-primary/10 text-primary font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">2</span>
-                  <span><strong>Antares</strong> is a mobile application that collaborate with IoT platform.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="bg-primary/10 text-primary font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">3</span>
-                  <span><strong>PentaQue</strong> is a mobile application for queuing system.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="bg-primary/10 text-primary font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">4</span>
-                  <span><strong>Emergency Button</strong> is a mobile application to report emergency case that cooperate with hospital around the user.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+      <div className="relative mt-14 lg:mt-20">
+        <div className="relative z-10 space-y-5 sm:space-y-7">
+          {SERVICES.map((service, idx) => (
+            <div key={service.category} className="sticky" style={{ top: `calc(96px + ${idx * 14}px)` }}>
+              <article className="section-card lift relative z-10 grid overflow-hidden md:grid-cols-[40%_1fr]">
+                <div className="h-[180px] overflow-hidden md:h-auto">
+                  <img
+                    src={service.photo}
+                    alt={service.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* IoT Solution */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-                <Satellite className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-3">IoT Solution</h3>
-              <h4 className="font-semibold text-primary mb-2">LoRaWAN Connectivity Integration</h4>
-              <p className="text-slate-600 text-sm mb-4">We provide tools that could connected to BTS LoRaWan which owned by PT. Telekomunikasi Indonesia. The BTS connections are covering Java Island, Sumatra and Bali.</p>
-            </div>
+                <div className="flex flex-col justify-center p-7 sm:p-9 lg:p-10">
+                  <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-brand-700">
+                    {service.category}
+                  </p>
+                  <h3 className="mt-3 text-[26px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[32px] lg:text-[36px]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-ink-secondary">
+                    {service.desc}
+                  </p>
 
-            {/* EMQX */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-                <Server className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-3">Authorization Reseller EMQX</h3>
-              <h4 className="font-semibold text-primary mb-2">(MQTT Broker)</h4>
-              <p className="text-slate-600 text-sm mb-4">We are legal agent of EMQX MQTT in Indonesia.</p>
-              <p className="text-xs text-slate-400 font-semibold mt-auto pt-4 border-t border-slate-100">Client & Partner: Telkom Indonesia, Antares</p>
-            </div>
+                  {service.note && (
+                    <p className="mt-4 max-w-[56ch] text-sm leading-relaxed text-ink-muted">{service.note}</p>
+                  )}
 
-            {/* Asset Management */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-                <HardDrive className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-3">Asset Management System</h3>
-              <h4 className="font-semibold text-primary mb-2">Digital Maintenance System</h4>
-              <p className="text-slate-600 text-sm mb-4">We provide tools that could Maintenance Asset, Tracking Asset using RFID.</p>
-              <p className="text-xs text-slate-400 font-semibold mt-auto pt-4 border-t border-slate-100">Client & Partner: Telkom Indonesia, Pertamina Drilling</p>
+                  <ul className="mt-6 flex flex-wrap gap-2">
+                    {service.tags.map((tag) => (
+                      <li key={tag}>
+                        <Tag>{tag}</Tag>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {service.partners && (
+                    <p className="mt-6 border-t border-black/[0.07] pt-4 text-[13px] text-ink-secondary">
+                      Client & Partner:{' '}
+                      <span className="font-medium text-ink">{service.partners}</span>
+                    </p>
+                  )}
+                </div>
+              </article>
+
+              {/* Two faded layers sitting behind the active card */}
+              {idx === 0 && (
+                <>
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-5 top-full h-[180px] origin-top scale-[0.96] rounded-[28px] border border-black/[0.05] bg-card-soft"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-5 top-[calc(100%+24px)] h-[180px] origin-top scale-[0.92] rounded-[28px] border border-black/[0.04] bg-canvas"
+                  />
+                </>
+              )}
             </div>
-          </div>
+          ))}
         </div>
       </div>
-    </section>
+    </SectionCard>
   );
 }

@@ -1,71 +1,120 @@
 import React from 'react';
-import { Eye, Target, Activity, Smartphone, Cpu, PenTool } from 'lucide-react';
+import Reveal from '../ui/Reveal';
+import ScrollWords from '../ui/ScrollWords';
+import SectionCard from '../ui/SectionCard';
+
+const STATEMENT =
+  'Formed specifically for IoT solution in Indonesia, we take responsibility all the way from design, software development, hardware, maintenance, and IoT solution.';
+
+const VISION =
+  'Become an Information and Technology company who can compete in global world nowadays, and become a company who can contribute to our society in IT field.';
+
+const MISSION = [
+  'Put forward our professionalism, individual skills, and teamwork to produce the best product.',
+  'Give best solution to our partner to handle any problems in IT sector.',
+];
+
+const DIVISIONS = [
+  { name: 'IoT', detail: 'Internet of Things' },
+  { name: 'Software', detail: 'Mobile apps & web application' },
+  { name: 'Hardware', detail: 'Perangkat dan board kontrol' },
+  { name: 'Design', detail: 'Antarmuka dan identitas produk' },
+];
+
+const PHOTOS = [
+  {
+    src: 'https://images.unsplash.com/photo-1581092919535-7146ff1a590b?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Perangkat elektronik yang dirakit di meja kerja',
+    className: 'lg:-translate-y-3 lg:-rotate-1',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Papan kontrol elektronik dalam proses perakitan',
+    className: 'lg:translate-y-6 lg:rotate-1',
+  },
+];
 
 export default function About() {
   return (
-    <section id="tentang" className="py-20 lg:py-32 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary-dark font-bold text-xs uppercase tracking-wider mb-4 border border-primary/20">
-              02. About Pentarium
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-black text-secondary mb-6 leading-tight">Tentang Pentarium</h2>
-            <p className="text-slate-600 mb-8 text-lg leading-relaxed">
-              Formed specifically for IoT solution in Indonesia. PT. PENTARIUM DIGITAL NUSANTARA have skills and resources to be able to provide you solution for your digital problems. With our in-house expertise backed up by our strong principals, we are capable to deliver the solution to your problems in Information Technology, no matter how complex it is. We can assume responsibility all the way from design, software development, hardware, maintenance and most important is IoT solution.
-              <br/><br/>
-              We make our business to provide our customers with cost effective and reliable solutions to all their digital needs. Our commitment to performance excellence and un-matched customer services is what allows us to keep our valuable customers, and is what make us different from our peers.
-            </p>
+    <SectionCard id="tentang" containerClassName="mt-16 lg:mt-20" className="p-8 sm:p-12 lg:p-16">
+      <p className="text-[13px] font-medium uppercase tracking-[0.18em] text-brand-700">
+        Tentang Pentarium
+      </p>
 
-            <div className="space-y-6">
-              <div className="flex gap-4 items-start">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                  <Eye className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-secondary mb-2">Our Vision</h3>
-                  <p className="text-slate-600">Become an Information and Technology company who can compete in global world nowadays, and become a company who can contribute to our society in IT field.</p>
-                </div>
-              </div>
-              <div className="flex gap-4 items-start">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                  <Target className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-secondary mb-2">Our Mission</h3>
-                  <ul className="list-disc pl-5 text-slate-600 space-y-1">
-                    <li>Put forward our professionalism, individual skills, and teamwork to produce the best product.</li>
-                    <li>Give best solution to our partner to handle any problems in IT sector.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+      <ScrollWords
+        text={STATEMENT}
+        className="mt-6 max-w-[17ch] text-[34px] font-medium leading-[1.12] tracking-[-0.02em] sm:max-w-none sm:text-[40px] lg:max-w-[26ch] lg:text-[44px]"
+      />
 
-          <div className="bg-linear-to-br from-secondary to-[#01023a] rounded-3xl p-8 lg:p-12 text-white shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            <h3 className="text-2xl lg:text-3xl font-black mb-8 relative z-10">Our Divisions</h3>
-            <ul className="space-y-6 relative z-10">
-              <li className="flex items-center gap-4 text-lg font-semibold">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-primary"><Activity className="w-5 h-5" /></div>
-                1. IoT (Internet of Things)
-              </li>
-              <li className="flex items-center gap-4 text-lg font-semibold">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-primary"><Smartphone className="w-5 h-5" /></div>
-                2. Software
-              </li>
-              <li className="flex items-center gap-4 text-lg font-semibold">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-primary"><Cpu className="w-5 h-5" /></div>
-                3. Hardware
-              </li>
-              <li className="flex items-center gap-4 text-lg font-semibold">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-primary"><PenTool className="w-5 h-5" /></div>
-                4. Design
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-5">
+        {PHOTOS.map((photo, idx) => (
+          <Reveal
+            as="figure"
+            key={photo.src}
+            delay={idx * 80}
+            className={`overflow-hidden rounded-[24px] ${photo.className}`}
+          >
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              className="h-[170px] w-full object-cover sm:h-[280px] lg:h-[340px]"
+            />
+          </Reveal>
+        ))}
       </div>
-    </section>
+
+      <div className="mt-16 grid gap-10 border-t border-black/[0.07] pt-12 lg:mt-24 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
+        <Reveal className="max-w-[56ch]">
+          <p className="text-base leading-relaxed text-ink-secondary sm:text-lg">
+            We make our business to provide our customers with cost effective and reliable solutions to
+            all their digital needs. Our commitment to performance excellence and un-matched customer
+            services is what allows us to keep our valuable customers, and is what make us different
+            from our peers.
+          </p>
+
+          <dl className="mt-10 space-y-8">
+            <div>
+              <dt className="text-[13px] font-medium uppercase tracking-[0.18em] text-ink-muted">
+                Our Vision
+              </dt>
+              <dd className="mt-2 text-xl leading-relaxed text-ink sm:text-2xl">{VISION}</dd>
+            </div>
+            <div>
+              <dt className="text-[13px] font-medium uppercase tracking-[0.18em] text-ink-muted">
+                Our Mission
+              </dt>
+              <dd className="mt-2">
+                <ul className="space-y-3 text-xl leading-relaxed text-ink sm:text-2xl">
+                  {MISSION.map((item) => (
+                    <li key={item} className="flex gap-4">
+                      <span aria-hidden="true" className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </Reveal>
+
+        <Reveal delay={80} className="card-inner self-start p-7 sm:p-8">
+          <h3 className="text-[13px] font-medium uppercase tracking-[0.18em] text-ink-muted">
+            Our Divisions
+          </h3>
+          <ol className="mt-6 space-y-5">
+            {DIVISIONS.map((division, idx) => (
+              <li key={division.name} className="flex gap-4 border-b border-black/[0.06] pb-5 last:border-0 last:pb-0">
+                <span className="font-mono text-xs text-brand-700">{String(idx + 1).padStart(2, '0')}</span>
+                <span>
+                  <span className="block text-lg font-medium text-ink">{division.name}</span>
+                  <span className="block text-sm text-ink-secondary">{division.detail}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+      </div>
+    </SectionCard>
   );
 }
