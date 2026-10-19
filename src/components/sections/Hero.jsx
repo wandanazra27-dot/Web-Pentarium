@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Cpu } from 'lucide-react';
+import { Cpu } from 'lucide-react';
 
 const AVATARS = [
   { initials: 'TP', label: 'Toni Prabowo, CEO' },
@@ -20,16 +20,16 @@ const CLIENTS = [
 
 const MEDIA = {
   left: {
-    src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+    src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
     alt: 'Engineer profesional menguji perangkat IoT di fasilitas modern',
   },
   center: {
-    src: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80',
-    alt: 'Perakitan papan kontrol sirkuit mikrokontroler IoT Pentarium',
+    src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Papan kontrol elektronik IoT Pentarium',
     caption: 'Papan kontrol PentaFlood dan PentaQua',
   },
   right: {
-    src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
     alt: 'Dashboard monitoring telemetri dan analitik IoT real-time',
   },
 };
@@ -119,57 +119,50 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* 3 Cinematic 3D Media Cards Matching Reference Photo */}
-      <div className="relative z-10 mx-auto max-w-[1040px] px-4 [perspective:1400px] sm:px-6">
+      {/* 3 Widescreen Rectangular (Persegi Panjang) Media Cards */}
+      <div className="relative z-10 mx-auto w-full max-w-[1360px] px-4 [perspective:1400px] sm:px-6 lg:px-8">
         <div className="flex items-center justify-center gap-3 sm:gap-5 lg:gap-6">
-          {/* Left Card: 3D perspective tilted inwards with bottom mask fade */}
-          <figure className="group hero-card-interactive hero-card-float-left mask-fade-bottom w-[28%] origin-right z-10">
-            <div className="overflow-hidden rounded-[16px] border-2 border-white bg-white/40 shadow-[0_14px_35px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:rounded-[22px] sm:border-3">
+          {/* Left Card: Widescreen horizontal rectangle with subtle 1px border */}
+          <figure className="group hero-card-interactive hero-card-float-left mask-fade-bottom w-[30%] lg:w-[31%] origin-right z-10">
+            <div className="overflow-hidden rounded-[18px] border border-white/40 bg-white/30 shadow-[0_16px_40px_rgba(0,0,0,0.07)] backdrop-blur-sm sm:rounded-[24px]">
               <img
                 src={MEDIA.left.src}
                 alt={MEDIA.left.alt}
                 loading="lazy"
-                className="h-[125px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 sm:h-[165px] lg:h-[195px]"
+                className="h-[125px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 sm:h-[165px] md:h-[195px] lg:h-[225px]"
               />
             </div>
           </figure>
 
-          {/* Center Card: Front & Center featured card with play button */}
-          <figure className="group hero-card-interactive hero-card-float-center relative w-[44%] z-20">
-            <div className="relative overflow-hidden rounded-[20px] border-3 border-white bg-white shadow-[0_20px_50px_rgba(0,0,0,0.14)] sm:rounded-[26px] sm:border-4">
+          {/* Center Card: Front & Center widescreen horizontal rectangle, subtle 1px border, NO play button */}
+          <figure className="group hero-card-interactive hero-card-float-center relative w-[40%] lg:w-[38%] z-20">
+            <div className="relative overflow-hidden rounded-[20px] border border-white/50 bg-white shadow-[0_22px_55px_rgba(0,0,0,0.12)] sm:rounded-[28px]">
               <img
                 src={MEDIA.center.src}
                 alt={MEDIA.center.alt}
-                className="h-[155px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 sm:h-[205px] lg:h-[245px]"
+                className="h-[150px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 sm:h-[200px] md:h-[240px] lg:h-[275px]"
               />
-              <button
-                type="button"
-                aria-label={`Putar ${MEDIA.center.caption}`}
-                className="absolute left-1/2 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-black/40 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-black/60 hover:shadow-[0_0_24px_rgba(255,255,255,0.4)] sm:h-14 sm:w-14"
-              >
-                <Play className="ml-0.5 h-5 w-5 fill-white text-white sm:h-6 sm:w-6" />
-              </button>
             </div>
             <figcaption className="mt-2.5 text-center text-[11px] font-medium text-ink-secondary sm:text-xs">
               {MEDIA.center.caption}
             </figcaption>
           </figure>
 
-          {/* Right Card: 3D perspective tilted inwards with bottom mask fade */}
-          <figure className="group hero-card-interactive hero-card-float-right mask-fade-bottom w-[28%] origin-left z-10">
-            <div className="overflow-hidden rounded-[16px] border-2 border-white bg-white/40 shadow-[0_14px_35px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:rounded-[22px] sm:border-3">
+          {/* Right Card: Widescreen horizontal rectangle with subtle 1px border */}
+          <figure className="group hero-card-interactive hero-card-float-right mask-fade-bottom w-[30%] lg:w-[31%] origin-left z-10">
+            <div className="overflow-hidden rounded-[18px] border border-white/40 bg-white/30 shadow-[0_16px_40px_rgba(0,0,0,0.07)] backdrop-blur-sm sm:rounded-[24px]">
               <img
                 src={MEDIA.right.src}
                 alt={MEDIA.right.alt}
                 loading="lazy"
-                className="h-[125px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 sm:h-[165px] lg:h-[195px]"
+                className="h-[125px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 sm:h-[165px] md:h-[195px] lg:h-[225px]"
               />
             </div>
           </figure>
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto mt-8 max-w-[960px] px-4 sm:mt-12 sm:px-10">
+      <div className="relative z-10 mx-auto mt-8 max-w-[1040px] px-4 sm:mt-12 sm:px-10">
         <ClientMarquee />
       </div>
     </section>

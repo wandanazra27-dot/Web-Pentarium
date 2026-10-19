@@ -9,7 +9,6 @@ import { Menu, X } from 'lucide-react';
 const NAV_LINKS = [
   { label: 'Beranda', href: '#beranda', path: '/' },
   { label: 'Tentang Kami', href: '#tentang', path: '/tentang' },
-  { label: 'Legalitas', href: '#legalitas', path: '/tentang' },
   { label: 'Tim', href: '#tim', path: '/tentang' },
   { label: 'Layanan', href: '#layanan', path: '/layanan' },
   { label: 'Produk', href: '#produk', path: '/produk' },

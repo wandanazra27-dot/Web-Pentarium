@@ -3,7 +3,6 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
-import Legality from './components/sections/Legality';
 import Team from './components/sections/Team';
 import Services from './components/sections/Services';
 import Products from './components/sections/Products';
@@ -17,7 +16,6 @@ export default function App() {
       <main className="w-full">
         <Hero />
         <About />
-        <Legality />
         <Team />
         <Services />
         <Products />
