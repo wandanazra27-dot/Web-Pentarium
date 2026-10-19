@@ -1,21 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Eye,
   Target,
-  CheckCircle2,
   Globe,
   Award,
   Sparkles,
-  MapPin,
-  Shield,
-  Layers,
+  ShieldCheck,
   Cpu,
   Smartphone,
   PenTool,
   Activity,
+  CheckCircle2,
+  MapPin,
+  Radio,
+  Layers,
 } from 'lucide-react';
 
 export default function About() {
+  // Real deployment field showcase items from Pentarium's authentic PDF records
+  const fieldShowcase = [
+    {
+      id: "pentaflood",
+      title: "PentaFlood™ Telemetri Lapangan",
+      tag: "Solar Telemetry & LoRaWAN",
+      location: "Bandung, Jawa Barat",
+      image: "/extracted/img_13.jpg",
+      description: "Pemasangan tiang sensor telemetri banjir bertenaga surya terhubung gateway LoRaWAN untuk transmisi data ketinggian air real-time.",
+    },
+    {
+      id: "aws",
+      title: "Automatic Weather Station (AWS)",
+      tag: "Environmental Sensors",
+      location: "Stasiun Lapangan, Jabar",
+      image: "/extracted/img_15.jpg",
+      description: "Perakitan modul sensor cuaca terpadu mencakup anemometer, pluviometer, dan sensor radiasi matahari dengan proteksi industri.",
+    },
+    {
+      id: "command-center",
+      title: "Integrated Command Center",
+      tag: "Multi-Screen Dashboard",
+      location: "Pentarium Control HQ",
+      image: "/extracted/img_29.jpg",
+      description: "Pusat pemantauan data terpadu multi-layar yang memvisualisasikan telemetri sensor ribuan node secara presisi dan terenkripsi.",
+    },
+  ];
+
+  const [activePhotoIdx, setActivePhotoIdx] = useState(0);
+  const activeItem = fieldShowcase[activePhotoIdx];
+
   const pillars = [
     {
       number: "01",
@@ -55,8 +87,15 @@ export default function About() {
     },
   ];
 
+  const stats = [
+    { value: "2020", label: "Tahun Berdiri", detail: "Di Bandung, Jawa Barat" },
+    { value: "10+", label: "Solusi Produk", detail: "PentaFlood, AWS, dll." },
+    { value: "Nasional", label: "Cakupan Jaringan", detail: "Jawa, Sumatra & Bali" },
+    { value: "100%", label: "In-House Team", detail: "Hardware & Software" },
+  ];
+
   return (
-    <section id="tentang" className="py-20 lg:py-32 bg-slate-50 relative overflow-hidden">
+    <section id="tentang" className="pt-28 pb-20 lg:pt-36 lg:pb-32 bg-slate-50 relative overflow-hidden scroll-mt-20">
       {/* Decorative Blur Backgrounds */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#12AA9E]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -right-32 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
@@ -64,103 +103,136 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ================= 1. TOP OVERVIEW SECTION ================= */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center mb-28">
           
-          {/* Left Column: Story & Detailed Paragraphs (7 Cols) */}
+          {/* Left Column: Human Story & Corporate Identity (7 Cols) */}
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#12AA9E]/10 text-[#0d7d74] font-bold text-xs uppercase tracking-wider mb-4 border border-[#12AA9E]/25">
               <Sparkles className="w-3.5 h-3.5 text-[#12AA9E]" />
-              02. About Pentarium
+              02. Profil Perusahaan
             </div>
             
-            <h2 className="text-3xl lg:text-5xl font-black text-secondary mb-6 leading-tight tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary mb-6 leading-[1.18] tracking-tight">
               Mengenal Lebih Dekat <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#12AA9E] to-primary-dark">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#12AA9E] to-primary-dark">
                 PT. Penta Digital Nusantara
               </span>
             </h2>
 
-            <div className="space-y-5 text-slate-600 text-base lg:text-lg leading-relaxed">
+            <div className="space-y-4 text-slate-600 text-base lg:text-lg leading-relaxed">
               <p>
-                Dibentuk secara khusus sebagai pelopor penyedia solusi <strong className="text-secondary font-semibold">Internet of Things (IoT)</strong> di Indonesia, <strong className="text-secondary font-semibold">PT. PENTARIUM DIGITAL NUSANTARA</strong> memiliki keahlian dan kapabilitas menyeluruh untuk mengatasi berbagai tantangan digital Anda.
+                Dibentuk secara khusus sebagai pelopor penyedia solusi <strong className="text-secondary font-semibold">Internet of Things (IoT)</strong> di Indonesia, <strong className="text-secondary font-semibold">PT. Pentarium Digital Nusantara (Pentarium)</strong> memiliki keahlian dan kapabilitas menyeluruh untuk mengatasi berbagai tantangan digitalisasi Anda.
               </p>
               
               <p>
-                Didukung oleh tim ahli in-house yang berdedikasi serta kemitraan prinsipal yang kokoh, kami mampu menghadirkan solusi teknologi informasi yang andal tanpa memandang tingkat kompleksitasnya. Tanggung jawab kami mencakup seluruh siklus: mulai dari perancangan arsitektur, pengembangan perangkat lunak (software), fabrikasi perangkat keras (hardware), hingga pemeliharaan sistem.
+                Didukung oleh tim ahli <em>in-house</em> yang berdedikasi serta kemitraan prinsipal yang kokoh, kami menghadirkan ekosistem teknologi informasi yang andal tanpa memandang tingkat kompleksitasnya: mulai dari perancangan arsitektur, riset & fabrikasi perangkat keras (<em>hardware</em>), pengembangan perangkat lunak (<em>software & cloud</em>), hingga implementasi konektivitas telemetri dan pemeliharaan sistem terpadu.
               </p>
 
-              <p className="border-l-4 border-[#12AA9E] pl-4 text-slate-700 font-medium italic bg-white/70 py-2.5 rounded-r-xl shadow-2xs">
-                "Komitmen kami adalah menghadirkan solusi digital yang hemat biaya, berkualitas tinggi, dan dapat diandalkan demi menciptakan nilai tambah yang berkelanjutan bagi setiap mitra."
-              </p>
+              <div className="bg-white p-5 rounded-2xl border-l-4 border-[#12AA9E] border border-slate-200/80 shadow-2xs">
+                <p className="text-slate-700 text-sm lg:text-base font-medium italic">
+                  "Komitmen kami adalah menghadirkan solusi digital yang hemat biaya, berkualitas tinggi, dan dapat diandalkan demi menciptakan nilai tambah yang berkelanjutan bagi setiap mitra."
+                </p>
+              </div>
             </div>
 
-            {/* Quick Feature Pills */}
-            <div className="mt-8 flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white border border-slate-200/80 text-xs font-semibold text-slate-700 shadow-2xs">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#12AA9E]" /> End-to-End IoT Solutions
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white border border-slate-200/80 text-xs font-semibold text-slate-700 shadow-2xs">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#12AA9E]" /> Cost-Effective & Reliable
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white border border-slate-200/80 text-xs font-semibold text-slate-700 shadow-2xs">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#12AA9E]" /> In-House Engineering
-              </span>
+            {/* Authentic Company Milestones */}
+            <div className="mt-8 pt-6 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {stats.map((stat, sIdx) => (
+                <div key={sIdx} className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-100 shadow-2xs hover:border-[#12AA9E]/40 hover:shadow-md transition-all">
+                  <p className="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-black text-[#12AA9E] font-mono tracking-tight">
+                    {stat.value}
+                  </p>
+                  <p className="text-xs font-bold text-slate-800 mt-1">{stat.label}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5 leading-tight">{stat.detail}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Column: Corporate Highlights Card (5 Cols) */}
-          <div className="lg:col-span-5">
-            <div className="bg-gradient-to-br from-secondary via-[#0a1128] to-[#01023a] rounded-3xl p-7 lg:p-9 text-white shadow-xl relative overflow-hidden border border-white/10">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#12AA9E]/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-              
-              <div className="relative z-10 mb-6">
-                <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-[#12AA9E] text-xs font-mono font-bold uppercase tracking-wider mb-2">
-                  Komitmen Kami
+          {/* Right Column: Real On-Site Deployment Showcase (5 Cols) */}
+          <div className="lg:col-span-5 flex flex-col gap-4">
+            {/* Main Interactive Showcase Card */}
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 bg-slate-900 group">
+              <img
+                src={activeItem.image}
+                alt={activeItem.title}
+                key={activeItem.id}
+                className="w-full h-[430px] object-cover object-center transition-all duration-500 group-hover:scale-105"
+              />
+              {/* Subtle dark gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-transparent" />
+
+              {/* Top status bar */}
+              <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-xs font-bold text-slate-800 shadow-md">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  Implementasi Nyata Lapangan
                 </span>
-                <h3 className="text-2xl lg:text-3xl font-black text-white">Your IoT Solution</h3>
-                <p className="text-slate-300 text-xs mt-1 leading-relaxed">
-                  Menyediakan ekosistem solusi digital terintegrasi dari hulu ke hilir untuk industri dan korporasi.
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/85 backdrop-blur-md text-[11px] font-mono text-white/95">
+                  <MapPin className="w-3 h-3 text-[#12AA9E]" />
+                  {activeItem.location}
+                </span>
+              </div>
+
+              {/* Bottom text overlay */}
+              <div className="absolute bottom-4 left-5 right-5 text-white">
+                <span className="inline-block text-[11px] uppercase tracking-wider text-[#12AA9E] font-bold mb-1">
+                  {activeItem.tag}
+                </span>
+                <h4 className="text-lg lg:text-xl font-bold text-white mb-1.5 leading-snug">
+                  {activeItem.title}
+                </h4>
+                <p className="text-xs text-slate-300 leading-relaxed line-clamp-2">
+                  {activeItem.description}
                 </p>
-              </div>
 
-              <div className="space-y-3.5 relative z-10">
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/5 border border-white/10">
-                  <div className="w-9 h-9 rounded-xl bg-[#12AA9E]/20 text-[#12AA9E] flex items-center justify-center shrink-0">
-                    <Shield className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-white">Performance Excellence</h4>
-                    <p className="text-slate-300 text-xs mt-0.5">Fokus pada performa sistem tinggi dan keandalan data real-time.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/5 border border-white/10">
-                  <div className="w-9 h-9 rounded-xl bg-[#12AA9E]/20 text-[#12AA9E] flex items-center justify-center shrink-0">
-                    <Layers className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-white">Full-Stack Responsibility</h4>
-                    <p className="text-slate-300 text-xs mt-0.5">Tanggung jawab terpusat: perancangan, perakitan, dan implementasi.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/5 border border-white/10">
-                  <div className="w-9 h-9 rounded-xl bg-[#12AA9E]/20 text-[#12AA9E] flex items-center justify-center shrink-0">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-white">Headquartered in Bandung</h4>
-                    <p className="text-slate-300 text-xs mt-0.5">Melayani implementasi digital dan konektivitas LoRaWAN se-Indonesia.</p>
-                  </div>
+                {/* Partner Trust Strip */}
+                <div className="mt-3.5 pt-3 border-t border-white/20 flex items-center justify-between text-[11px] text-slate-300">
+                  <span className="text-slate-400">Ekosistem & Prinsipal Resmi:</span>
+                  <span className="font-semibold text-white">Telkom • Mitratel • EMQX</span>
                 </div>
               </div>
+            </div>
+
+            {/* Interactive Photo Switcher Tabs */}
+            <div className="bg-white p-2 rounded-2xl border border-slate-200/80 shadow-xs grid grid-cols-3 gap-2">
+              {fieldShowcase.map((item, idx) => {
+                const isActive = activePhotoIdx === idx;
+                return (
+                  <button
+                    key={item.id}
+                    id={`showcase-tab-${item.id}`}
+                    type="button"
+                    onClick={() => setActivePhotoIdx(idx)}
+                    className={`flex items-center gap-2.5 px-2.5 py-2.5 rounded-xl text-left transition-all ${
+                      isActive
+                        ? 'bg-[#12AA9E]/15 border-2 border-[#12AA9E] text-[#0d7d74] shadow-xs'
+                        : 'bg-slate-50/80 hover:bg-slate-100 text-slate-600 border border-slate-200/60'
+                    }`}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-8 h-8 rounded-lg object-cover shrink-0 border border-slate-200"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <p className={`text-[11px] font-bold truncate ${isActive ? 'text-[#0d7d74]' : 'text-slate-800'}`}>
+                        {item.id === 'pentaflood' ? 'PentaFlood' : item.id === 'aws' ? 'Stasiun AWS' : 'Command Ctr'}
+                      </p>
+                      <p className="text-[10px] text-slate-400 truncate">
+                        {item.id === 'pentaflood' ? 'Telemetri' : item.id === 'aws' ? 'Sensors' : 'Dashboard'}
+                      </p>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
         </div>
 
         {/* ================= 2. THE FOUR PILLARS SECTION (GOJEK-INSPIRED) ================= */}
-        <div className="mb-24">
+        <div className="mb-28">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-[#12AA9E] font-extrabold tracking-widest text-xs uppercase mb-2 block">
               Our Divisions
