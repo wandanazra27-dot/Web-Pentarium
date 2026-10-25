@@ -1,11 +1,5 @@
 import React from 'react';
 
-const AVATARS = [
-  { initials: 'TP', label: 'Toni Prabowo, CEO' },
-  { initials: 'WJ', label: 'Waluya Juang, CTO' },
-  { initials: 'AB', label: 'Agus Budiantoro, COO' },
-];
-
 const CLIENTS = [
   'Telkom Indonesia',
   'Pertamina Drilling',
@@ -17,17 +11,6 @@ const CLIENTS = [
   'Tirtawening',
 ];
 
-function Avatar({ initials, label }) {
-  return (
-    <span
-      title={label}
-      className="flex h-7 w-7 items-center justify-center rounded-full bg-[#12AA9E] text-[10px] font-semibold tracking-tight text-white ring-2 ring-white"
-    >
-      {initials}
-    </span>
-  );
-}
-
 export default function Hero() {
   return (
     <section
@@ -38,21 +21,7 @@ export default function Hero() {
       {/* 3D Halftone Dotted Globe Background */}
       <div aria-hidden="true" className="halftone-globe pointer-events-none absolute inset-0" />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6 pb-4 pt-28 text-center sm:px-10 sm:pb-8 sm:pt-34">
-        {/* Top Badge: Avatars + Pentarium Team */}
-        <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-white/95 py-1.5 pl-2 pr-5 shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-white/80 backdrop-blur-md">
-          <div className="flex items-center">
-            {AVATARS.map((avatar, idx) => (
-              <span key={avatar.initials} className={idx > 0 ? '-ml-2' : ''}>
-                <Avatar {...avatar} />
-              </span>
-            ))}
-          </div>
-          <span className="whitespace-nowrap text-[13px] font-medium text-slate-800">
-            5 tim teknis sejak 2020 &bull; Solusi IoT Terpercaya
-          </span>
-        </div>
-
+      <div className="relative z-10 mx-auto max-w-4xl px-6 pb-4 pt-32 text-center sm:px-10 sm:pb-8 sm:pt-40">
         {/* Heading: Clean, elegant typography without the icon badge */}
         <h1 className="text-[38px] font-bold leading-[1.08] tracking-[-0.02em] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.1)] sm:text-[54px] lg:text-[68px]">
           Your IoT Solution
