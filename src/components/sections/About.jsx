@@ -14,6 +14,11 @@ import {
   MapPin,
   Radio,
   Layers,
+  Wifi,
+  Zap,
+  Terminal,
+  Code2,
+  Box,
 } from 'lucide-react';
 
 export default function About() {
@@ -87,11 +92,31 @@ export default function About() {
     },
   ];
 
-  const stats = [
-    { value: "2020", label: "Tahun Berdiri", detail: "Di Bandung, Jawa Barat" },
-    { value: "10+", label: "Solusi Produk", detail: "PentaFlood, AWS, dll." },
-    { value: "Nasional", label: "Cakupan Jaringan", detail: "Jawa, Sumatra & Bali" },
-    { value: "100%", label: "In-House Team", detail: "Hardware & Software" },
+  const coreServices = [
+    {
+      title: "IoT & Telemetri",
+      desc: "Smart sensor & LoRaWAN",
+      icon: Radio,
+      badge: "01",
+    },
+    {
+      title: "Software & Cloud",
+      desc: "Web dashboard & mobile app",
+      icon: Code2,
+      badge: "02",
+    },
+    {
+      title: "Hardware Embedded",
+      desc: "Custom PCB & firmware",
+      icon: Cpu,
+      badge: "03",
+    },
+    {
+      title: "Industrial & UI Design",
+      desc: "Casing IP67 & sistem UI/UX",
+      icon: Box,
+      badge: "04",
+    },
   ];
 
   return (
@@ -135,17 +160,34 @@ export default function About() {
               </div>
             </div>
 
-            {/* Authentic Company Milestones */}
+            {/* 4 Fokus Layanan Inti */}
             <div className="mt-8 pt-6 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {stats.map((stat, sIdx) => (
-                <div key={sIdx} className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-100 shadow-2xs hover:border-[#12AA9E]/40 hover:shadow-md transition-all">
-                  <p className="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-black text-[#12AA9E] font-mono tracking-tight">
-                    {stat.value}
-                  </p>
-                  <p className="text-xs font-bold text-slate-800 mt-1">{stat.label}</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5 leading-tight">{stat.detail}</p>
-                </div>
-              ))}
+              {coreServices.map((service, sIdx) => {
+                const IconComponent = service.icon;
+                return (
+                  <div
+                    key={sIdx}
+                    className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-2xs hover:border-[#12AA9E]/50 hover:shadow-md transition-all group flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-2.5">
+                        <div className="w-8 h-8 rounded-xl bg-[#12AA9E]/10 text-[#12AA9E] flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <IconComponent className="w-4 h-4" />
+                        </div>
+                        <span className="text-[10px] font-mono font-bold text-slate-400 group-hover:text-[#12AA9E] transition-colors">
+                          {service.badge}
+                        </span>
+                      </div>
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-[#12AA9E] transition-colors leading-snug">
+                        {service.title}
+                      </h4>
+                    </div>
+                    <p className="text-[11px] text-slate-500 mt-1 leading-tight">
+                      {service.desc}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -290,44 +332,113 @@ export default function About() {
                     </p>
                   </div>
 
-                  {/* Bottom Part: Minimalist Geometric Graphic Art (Gojek-Inspired) */}
-                  <div className="pt-8">
-                    {pillar.shapeType === "iot" && (
-                      /* IoT geometric connected nodes & rings */
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full border-4 border-slate-900 bg-transparent shrink-0" />
-                        <div className="w-8 h-8 rounded-full bg-white shrink-0" />
-                        <div className="w-8 h-8 rounded-full border-4 border-slate-900 bg-transparent shrink-0" />
-                        <div className="w-8 h-8 rounded-full bg-white shrink-0" />
-                        <div className="w-4 h-8 rounded-l-full bg-slate-900 shrink-0" />
-                      </div>
-                    )}
+                  {/* Bottom Part: Clean Iconic Logo for Each Pillar */}
+                  <div className="pt-8 pb-2 flex flex-col items-center justify-center">
+                    <div
+                      className={`w-24 h-24 rounded-3xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-md ${
+                        isTeal
+                          ? 'bg-white/15 border border-white/25 text-white shadow-black/10'
+                          : 'bg-[#12AA9E]/10 border border-[#12AA9E]/20 text-[#12AA9E] shadow-[#12AA9E]/5'
+                      }`}
+                    >
+                      {pillar.shapeType === "iot" && (
+                        /* Logo IoT: Sensor Hub & Wireless Telemetry Arcs */
+                        <svg
+                          viewBox="0 0 48 48"
+                          className="w-12 h-12"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <circle cx="24" cy="24" r="5" fill="currentColor" fillOpacity="0.2" />
+                          <circle cx="24" cy="24" r="2.5" fill="currentColor" />
+                          <path d="M17 17a9.9 9.9 0 0 1 14 0" />
+                          <path d="M12 12a17 17 0 0 1 24 0" />
+                          <path d="M7 7a24.1 24.1 0 0 1 34 0" />
+                          <path d="M24 29v7" />
+                          <circle cx="24" cy="38" r="2" fill="currentColor" />
+                          <path d="M20 27l-6 6" />
+                          <circle cx="12" cy="35" r="2" fill="currentColor" />
+                          <path d="M28 27l6 6" />
+                          <circle cx="36" cy="35" r="2" fill="currentColor" />
+                        </svg>
+                      )}
 
-                    {pillar.shapeType === "software" && (
-                      /* Software geometric arch & pill */
-                      <div className="flex flex-col items-center">
-                        <div className="w-16 h-8 rounded-t-full bg-[#12AA9E] relative overflow-hidden">
-                          <div className="absolute bottom-0 left-0 right-0 h-2 bg-slate-900" />
-                        </div>
-                        <div className="w-16 h-8 rounded-b-full bg-slate-900" />
-                      </div>
-                    )}
+                      {pillar.shapeType === "software" && (
+                        /* Logo Software: Application Window & Code Brackets */
+                        <svg
+                          viewBox="0 0 48 48"
+                          className="w-12 h-12"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <rect x="6" y="8" width="36" height="26" rx="5" fill="currentColor" fillOpacity="0.1" />
+                          <line x1="6" y1="16" x2="42" y2="16" />
+                          <circle cx="11" cy="12" r="1.5" fill="currentColor" />
+                          <circle cx="16" cy="12" r="1.5" fill="currentColor" />
+                          <circle cx="21" cy="12" r="1.5" fill="currentColor" />
+                          <polyline points="18 21 14 25 18 29" />
+                          <polyline points="30 21 34 25 30 29" />
+                          <line x1="26" y1="20" x2="22" y2="30" />
+                          <path d="M18 34l-3 6h18l-3-6" />
+                        </svg>
+                      )}
 
-                    {pillar.shapeType === "hardware" && (
-                      /* Hardware geometric overlapping solid & ring */
-                      <div className="flex items-center justify-center -space-x-4">
-                        <div className="w-14 h-14 rounded-full bg-slate-900 shrink-0" />
-                        <div className="w-14 h-14 rounded-full border-4 border-white bg-transparent shrink-0" />
-                      </div>
-                    )}
+                      {pillar.shapeType === "hardware" && (
+                        /* Logo Hardware: Microcontroller CPU Processor Chip */
+                        <svg
+                          viewBox="0 0 48 48"
+                          className="w-12 h-12"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <rect x="11" y="11" width="26" height="26" rx="4" fill="currentColor" fillOpacity="0.15" />
+                          <rect x="17" y="17" width="14" height="14" rx="2" strokeWidth="2" />
+                          <circle cx="20" cy="20" r="1" fill="currentColor" />
+                          <line x1="16" y1="5" x2="16" y2="11" />
+                          <line x1="24" y1="5" x2="24" y2="11" />
+                          <line x1="32" y1="5" x2="32" y2="11" />
+                          <line x1="16" y1="37" x2="16" y2="43" />
+                          <line x1="24" y1="37" x2="24" y2="43" />
+                          <line x1="32" y1="37" x2="32" y2="43" />
+                          <line x1="5" y1="16" x2="11" y2="16" />
+                          <line x1="5" y1="24" x2="11" y2="24" />
+                          <line x1="5" y1="32" x2="11" y2="32" />
+                          <line x1="37" y1="16" x2="43" y2="16" />
+                          <line x1="37" y1="24" x2="43" y2="24" />
+                          <line x1="37" y1="32" x2="43" y2="32" />
+                        </svg>
+                      )}
 
-                    {pillar.shapeType === "design" && (
-                      /* Design geometric intersecting teal & dark circle */
-                      <div className="flex items-center justify-center -space-x-3">
-                        <div className="w-14 h-14 rounded-full bg-[#12AA9E] shrink-0" />
-                        <div className="w-14 h-14 rounded-full border-4 border-slate-900 bg-transparent shrink-0" />
-                      </div>
-                    )}
+                      {pillar.shapeType === "design" && (
+                        /* Logo Design: Digital Pen Tool & Vector Bezier Anchors */
+                        <svg
+                          viewBox="0 0 48 48"
+                          className="w-12 h-12"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M25 8l8 8-16 16-5-1-1-5 14-18z" fill="currentColor" fillOpacity="0.1" />
+                          <path d="M11 31l-4 9 9-4" />
+                          <circle cx="21" cy="18" r="2" fill="currentColor" />
+                          <path d="M26 34c4-3 9-2 12 1" strokeDasharray="2 2" />
+                          <circle cx="40" cy="36" r="2.5" fill="currentColor" fillOpacity="0.25" />
+                          <path d="M8 18c2-4 6-5 9-3" strokeDasharray="2 2" />
+                          <rect x="6" y="16" width="4" height="4" rx="1" fill="currentColor" fillOpacity="0.25" />
+                        </svg>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
