@@ -9,8 +9,8 @@ import { Menu, X } from 'lucide-react';
 const NAV_LINKS = [
   { label: 'Beranda', href: '#beranda', path: '/' },
   { label: 'Tentang Kami', href: '#tentang', path: '/tentang' },
-  { label: 'Legalitas', href: '#legalitas', path: '/tentang' },
   { label: 'Tim', href: '#tim', path: '/tentang' },
+  { label: 'Layanan', href: '#layanan', path: '/layanan' },
   { label: 'Produk', href: '#produk', path: '/produk' },
   { label: 'Proyek', href: '#proyek', path: '/produk' },
 ];
@@ -58,13 +58,13 @@ export default function Navbar() {
         isScrolled ? 'bg-canvas/75 backdrop-blur-[12px] border-b border-black/[0.06]' : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6">
+      <div className="w-full px-6 sm:px-10 lg:px-12 xl:px-16">
         <div className="flex h-20 items-center justify-between gap-4">
-          <a href="#beranda" aria-label="Pentarium" className="block h-9 w-9 shrink-0 overflow-hidden sm:h-10 sm:w-10">
+          <a href="#beranda" aria-label="Pentarium" className="flex items-center justify-center h-10 px-3.5 rounded-full bg-[#111111] shadow-md transition-transform hover:scale-105 shrink-0">
             <img
               src="/logo pentarium.png"
               alt="Pentarium"
-              className="h-9 w-9 origin-top scale-[1.22] brightness-0 sm:h-10 sm:w-10"
+              className="h-6 w-auto object-contain brightness-0 invert"
             />
           </a>
 

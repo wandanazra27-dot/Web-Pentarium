@@ -1,5 +1,4 @@
 import React from 'react';
-import { Play, Cpu } from 'lucide-react';
 
 const AVATARS = [
   { initials: 'TP', label: 'Toni Prabowo, CEO' },
@@ -13,154 +12,151 @@ const CLIENTS = [
   'Mitratel',
   'Antares',
   'PDAM Kota Bandung',
-  'Edu Media Digital',
+  'Lippo Village',
   'The Jungle Bogor',
-  'LapakPOS',
+  'Tirtawening',
 ];
-
-const MEDIA = {
-  center: {
-    src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Papan sirkuit elektronik dengan komponen IoT',
-    caption: 'Papan kontrol PentaFlood dan PentaQua',
-  },
-  left: {
-    src: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80',
-    alt: 'Sensor lingkungan terpasang di lokasi',
-  },
-  right: {
-    src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80',
-    alt: 'Jaringan IoT dan konektivitas',
-  },
-};
 
 function Avatar({ initials, label }) {
   return (
     <span
       title={label}
-      className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-700 text-[10px] font-semibold tracking-tight text-white ring-2 ring-white"
+      className="flex h-7 w-7 items-center justify-center rounded-full bg-[#12AA9E] text-[10px] font-semibold tracking-tight text-white ring-2 ring-white"
     >
       {initials}
     </span>
   );
 }
 
-function ClientMarquee() {
-  const row = [...CLIENTS, ...CLIENTS];
-  return (
-    <div className="border-t border-white/40 py-6 sm:py-7">
-      <p className="mb-5 text-center text-[11px] uppercase tracking-[0.18em] text-brand-900/70">
-        Terpercaya oleh operator, groundwork, dan instansi
-      </p>
-      <div className="overflow-hidden">
-        <div className="marquee-track flex w-max items-center gap-12 sm:gap-16">
-          {row.map((client, idx) => (
-            <span
-              key={`${client}-${idx}`}
-              className="whitespace-nowrap text-sm font-medium tracking-tight text-ink-secondary opacity-70 grayscale transition-colors duration-200 hover:text-brand-700 hover:opacity-100 sm:text-base"
-            >
-              {client}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Hero() {
   return (
-    <section id="beranda" className="px-4 pt-24 sm:px-6 sm:pt-28">
-      <div
-        className="relative mx-auto w-full max-w-[1200px] overflow-hidden rounded-[28px] shadow-floating"
-        style={{ backgroundImage: 'var(--gradient-hero)' }}
-      >
-        <div aria-hidden="true" className="halftone-globe pointer-events-none absolute inset-0" />
+    <section
+      id="beranda"
+      className="relative w-full overflow-hidden"
+      style={{ backgroundImage: 'var(--gradient-hero)' }}
+    >
+      {/* 3D Halftone Dotted Globe Background */}
+      <div aria-hidden="true" className="halftone-globe pointer-events-none absolute inset-0" />
 
-        <div className="relative z-10 mx-auto max-w-4xl px-6 pb-14 pt-16 text-center sm:px-10 sm:pb-20 sm:pt-24">
-          <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white py-1.5 pl-1.5 pr-5 shadow-[0_2px_6px_rgba(0,0,0,0.04)]">
-            <div className="flex items-center">
-              {AVATARS.map((avatar, idx) => (
-                <span key={avatar.initials} className={idx > 0 ? '-ml-2' : ''}>
-                  <Avatar {...avatar} />
-                </span>
-              ))}
+      <div className="relative z-10 mx-auto max-w-4xl px-6 pb-4 pt-28 text-center sm:px-10 sm:pb-8 sm:pt-34">
+        {/* Top Badge: Avatars + Pentarium Team */}
+        <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-white/95 py-1.5 pl-2 pr-5 shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-white/80 backdrop-blur-md">
+          <div className="flex items-center">
+            {AVATARS.map((avatar, idx) => (
+              <span key={avatar.initials} className={idx > 0 ? '-ml-2' : ''}>
+                <Avatar {...avatar} />
+              </span>
+            ))}
+          </div>
+          <span className="whitespace-nowrap text-[13px] font-medium text-slate-800">
+            5 tim teknis sejak 2020 &bull; Solusi IoT Terpercaya
+          </span>
+        </div>
+
+        {/* Heading: Clean, elegant typography without the icon badge */}
+        <h1 className="text-[38px] font-bold leading-[1.08] tracking-[-0.02em] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.1)] sm:text-[54px] lg:text-[68px]">
+          Your IoT Solution
+          <br />
+          <span className="serif-italic font-normal text-[0.82em] text-white/95">
+            terlengkap di Indonesia
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mx-auto mt-6 max-w-[620px] text-sm leading-relaxed text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,0.12)] sm:text-base">
+          Kami hadir untuk memberikan solusi atas permasalahan teknologi informasi Anda, dari
+          desain, pengembangan perangkat lunak, perangkat keras, hingga solusi IoT.
+        </p>
+
+        {/* Single Centered Glossy Black CTA Button */}
+        <div className="mt-8 flex items-center justify-center">
+          <a
+            href="#produk"
+            className="btn-glossy px-8 py-3.5 text-base shadow-xl hover:scale-105 transition-transform"
+          >
+            Lihat Produk
+          </a>
+        </div>
+      </div>
+
+      {/* 3 Widescreen Cards in 3D Perspective ("agak miring-miring") matching reference visual */}
+      <div className="relative z-10 mx-auto w-full max-w-[1480px] px-3 sm:px-6 lg:px-8 mt-6 sm:mt-10 hero-3d-stage">
+        {/* Soft bottom gradient mist fading the cards into the white section */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 -bottom-3 h-32 sm:h-44 md:h-56 bg-gradient-to-t from-white via-white/90 to-transparent z-30"
+        />
+
+        <div className="flex items-center justify-center -space-x-6 sm:-space-x-10 md:-space-x-14 lg:-space-x-16">
+          {/* Left Card: Field Assembly (img_15.jpg) - 3D Tilted Concave towards center */}
+          <div className="hero-card-left group w-[34%] sm:w-[33%] lg:w-[32%] z-10 shrink-0">
+            <div className="overflow-hidden rounded-[20px] sm:rounded-[30px] lg:rounded-[36px] border border-white/60 bg-slate-900/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] backdrop-blur-sm">
+              <img
+                src="/extracted/img_15.jpg"
+                alt="Automatic Weather Station Field Assembly"
+                loading="lazy"
+                className="h-[180px] sm:h-[250px] md:h-[310px] lg:h-[370px] w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              />
             </div>
-            <span className="whitespace-nowrap text-[13px] font-medium text-ink">
-              5 tim teknis sejak 2020
-            </span>
           </div>
 
-          <h1 className="text-[40px] font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-[56px] lg:text-[76px]">
-            Your
-            <span className="inline-flex translate-y-[-0.06em] items-center justify-center rounded-[16px] bg-[#1A1A1A] p-[0.16em] align-middle">
-              <Cpu className="h-[0.6em] w-[0.6em] text-white" aria-hidden="true" />
-            </span>{' '}
-            IoT Solution
-            <br />
-            <span className="serif-italic text-[0.78em]">terlengkap di Indonesia</span>
-          </h1>
+          {/* Center Card: Command Center (img_29.jpg) - Front, elevated photo card */}
+          <div className="hero-card-center group relative w-[42%] sm:w-[40%] lg:w-[38%] z-20 shrink-0">
+            <div className="relative overflow-hidden rounded-[22px] sm:rounded-[32px] lg:rounded-[40px] border-2 sm:border-[3px] border-white bg-slate-900/10 shadow-[0_30px_70px_rgba(0,0,0,0.25)]">
+              <img
+                src="/extracted/img_29.jpg"
+                alt="Integrated Command Center Monitoring System"
+                className="h-[210px] sm:h-[280px] md:h-[350px] lg:h-[415px] w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+            </div>
+          </div>
 
-          <p className="mx-auto mt-7 max-w-[620px] text-base leading-relaxed text-white/90 sm:text-lg">
-            Kami hadir untuk memberikan solusi atas permasalahan teknologi informasi Anda, dari
-            desain, pengembangan perangkat lunak, perangkat keras, hingga solusi IoT.
-          </p>
-
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a href="#produk" className="btn-glossy">
-              Lihat Produk
-            </a>
-            <a
-              href="#tentang"
-              className="rounded-full border border-white/70 bg-white/10 px-6 py-[13px] text-[15px] font-semibold text-white backdrop-blur-[12px] transition-colors duration-200 hover:bg-white/20"
-            >
-              Tentang Kami
-            </a>
+          {/* Right Card: Solar Telemetry (img_13.jpg) - 3D Tilted Concave towards center */}
+          <div className="hero-card-right group w-[34%] sm:w-[33%] lg:w-[32%] z-10 shrink-0">
+            <div className="overflow-hidden rounded-[20px] sm:rounded-[30px] lg:rounded-[36px] border border-white/60 bg-slate-900/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] backdrop-blur-sm">
+              <img
+                src="/extracted/img_13.jpg"
+                alt="PentaFlood Solar Telemetry Deployment"
+                loading="lazy"
+                className="h-[180px] sm:h-[250px] md:h-[310px] lg:h-[370px] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+            </div>
           </div>
         </div>
+      </div>
 
-        <div className="relative z-10 -mx-4 [perspective:1600px] sm:-mx-14">
-          <div className="flex items-center justify-center gap-3 sm:gap-6">
-            <figure className="mask-fade-bottom w-[27%] rotate-y-[12deg]">
-              <img
-                src={MEDIA.left.src}
-                alt={MEDIA.left.alt}
-                loading="lazy"
-                className="h-[120px] w-full rounded-[24px] border-4 border-white object-cover shadow-[0_20px_60px_rgba(0,0,0,0.08)] sm:h-[200px]"
-              />
-            </figure>
+      {/* Animated Partner / Client Marquee ("ini nya gerak") */}
+      <div className="relative z-10 w-full overflow-hidden pt-10 pb-14 sm:pt-14 sm:pb-18 select-none">
+        {/* Soft edge fade for marquee */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-44 bg-gradient-to-r from-white to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-44 bg-gradient-to-l from-white to-transparent z-20" />
 
-            <figure className="relative w-[44%]">
-              <img
-                src={MEDIA.center.src}
-                alt={MEDIA.center.alt}
-                className="h-[160px] w-full rounded-[24px] border-4 border-white object-cover shadow-[0_20px_60px_rgba(0,0,0,0.08)] sm:h-[260px]"
-              />
-              <button
-                type="button"
-                aria-label={`Putar ${MEDIA.center.caption}`}
-                className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/35 backdrop-blur-md transition-transform duration-200 hover:scale-105 sm:h-16 sm:w-16"
+        <div className="marquee-track flex w-max items-center hover:[animation-play-state:paused]">
+          {/* Set 1 */}
+          <div className="flex items-center gap-10 sm:gap-16 lg:gap-20 pr-10 sm:pr-16 lg:pr-20 shrink-0">
+            {CLIENTS.map((client) => (
+              <span
+                key={`s1-${client}`}
+                className="font-sans font-black text-sm sm:text-base tracking-widest uppercase text-slate-800/60 hover:text-brand-700 transition-colors whitespace-nowrap cursor-default"
               >
-                <Play className="ml-0.5 h-5 w-5 fill-white text-white sm:h-6 sm:w-6" />
-              </button>
-              <figcaption className="mt-3 text-center text-[13px] font-medium text-ink-secondary">
-                {MEDIA.center.caption}
-              </figcaption>
-            </figure>
-
-            <figure className="mask-fade-bottom w-[27%] -rotate-y-[12deg]">
-              <img
-                src={MEDIA.right.src}
-                alt={MEDIA.right.alt}
-                loading="lazy"
-                className="h-[120px] w-full rounded-[24px] border-4 border-white object-cover shadow-[0_20px_60px_rgba(0,0,0,0.08)] sm:h-[200px]"
-              />
-            </figure>
+                {client}
+              </span>
+            ))}
           </div>
-        </div>
-
-        <div className="relative z-10 mx-auto mt-10 max-w-[1000px] px-4 sm:mt-14 sm:px-10">
-          <ClientMarquee />
+          {/* Set 2 (for seamless infinite loop) */}
+          <div
+            className="flex items-center gap-10 sm:gap-16 lg:gap-20 pr-10 sm:pr-16 lg:pr-20 shrink-0"
+            aria-hidden="true"
+          >
+            {CLIENTS.map((client, idx) => (
+              <span
+                key={`s2-${client}-${idx}`}
+                className="font-sans font-black text-sm sm:text-base tracking-widest uppercase text-slate-800/60 hover:text-brand-700 transition-colors whitespace-nowrap cursor-default"
+              >
+                {client}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

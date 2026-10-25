@@ -21,6 +21,9 @@ export default {
           DEFAULT: '#12AA9E',
           dark: '#0E8A80',
         },
+        secondary: '#03045e',
+        dark: '#0f172a',
+        light: '#f8fafc',
         canvas: '#EFEFEF',
         card: {
           DEFAULT: '#FFFFFF',
@@ -34,7 +37,7 @@ export default {
         positive: '#1E9E5A',
       },
       fontFamily: {
-        sans: ['"Instrument Sans"', 'sans-serif'],
+        sans: ['"Instrument Sans"', 'Nunito', 'sans-serif'],
         serif: ['"Playfair Display"', 'serif'],
       },
       borderRadius: {
