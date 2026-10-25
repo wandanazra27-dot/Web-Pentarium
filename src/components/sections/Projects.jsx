@@ -333,27 +333,27 @@ export default function Projects() {
       : PROJECTS.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="proyek" className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden scroll-mt-20">
+    <section id="proyek" className="pt-4 pb-16 lg:pt-6 lg:pb-20 bg-slate-50 relative overflow-hidden scroll-mt-20">
       {/* Decorative Blur Backgrounds */}
       <div className="absolute top-1/4 -right-32 w-96 h-96 bg-[#12AA9E]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -left-32 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <Reveal className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#12AA9E]/10 text-[#0d7d74] font-bold text-xs uppercase tracking-wider mb-4 border border-[#12AA9E]/25">
+        <Reveal className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#12AA9E]/10 text-[#0d7d74] font-bold text-xs uppercase tracking-wider mb-2.5 border border-[#12AA9E]/25">
             <Sparkles className="w-3.5 h-3.5 text-[#12AA9E]" />
             05. Rekam Jejak Kolaborasi & Implementasi
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary tracking-tight">
             Proyek Strategis <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#12AA9E] to-primary-dark">& Kolaborasi Lainnya</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-[62ch] text-sm sm:text-base leading-relaxed text-slate-500">
+          <p className="mx-auto mt-2.5 max-w-[62ch] text-sm sm:text-base leading-relaxed text-slate-500">
             Bukti nyata komitmen Pentarium dalam mendampingi BUMN, pemerintah daerah, dan institusi nasional mewujudkan adopsi IoT yang teruji, andal, dan berdampak nyata di lapangan.
           </p>
 
           {/* Category Filter Chips */}
-          <div className="mt-8 flex flex-wrap justify-center gap-2">
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat;
               return (
@@ -361,7 +361,7 @@ export default function Projects() {
                   key={cat}
                   type="button"
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-[13px] font-bold transition-all cursor-pointer ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-bold transition-all cursor-pointer ${
                     isActive
                       ? 'bg-slate-900 text-white shadow-md scale-105'
                       : 'bg-white text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-200/80 shadow-xs'
@@ -375,15 +375,15 @@ export default function Projects() {
         </Reveal>
 
         {/* Project Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
           {filteredProjects.map((project, index) => (
             <Reveal key={project.id} delay={index * 80}>
               <div
                 onClick={() => setSelectedProject(project)}
-                className="group relative bg-white rounded-[28px] sm:rounded-[32px] border border-slate-200/70 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer flex flex-col h-full"
+                className="group relative bg-white rounded-[24px] sm:rounded-[28px] border border-slate-200/70 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer flex flex-col h-full"
               >
                 {/* Visual Header Image Banner */}
-                <div className="relative aspect-[16/8] sm:aspect-[16/7] w-full overflow-hidden bg-slate-900">
+                <div className="relative aspect-[16/6.8] sm:aspect-[16/6] w-full overflow-hidden bg-slate-900">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -393,7 +393,7 @@ export default function Projects() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent" />
 
                   {/* Top Floating Badges */}
-                  <div className="absolute top-4 inset-x-4 flex items-center justify-between gap-2">
+                  <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between gap-2">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold border border-white/20">
                       <Building2 className="w-3 h-3 text-[#12AA9E]" />
                       {project.partnerShort}
@@ -405,7 +405,7 @@ export default function Projects() {
                   </div>
 
                   {/* Bottom Image Overlay Tag */}
-                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
+                  <div className="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#6FD3CB] font-mono">
                       {project.tag}
                     </span>
@@ -417,23 +417,23 @@ export default function Projects() {
                 </div>
 
                 {/* Card Body */}
-                <div className="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+                <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-tight group-hover:text-[#12AA9E] transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-tight group-hover:text-[#12AA9E] transition-colors">
                       {project.title}
                     </h3>
-                    <p className="mt-3 text-sm text-slate-600 leading-relaxed line-clamp-3">
+                    <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2">
                       {project.desc}
                     </p>
                   </div>
 
                   {/* Impact Metric Chips */}
-                  <div className="mt-6 pt-5 border-t border-slate-100">
+                  <div className="mt-4 pt-3.5 border-t border-slate-100">
                     <div className="grid grid-cols-3 gap-2">
                       {project.metrics.map((metric, mIdx) => (
                         <div
                           key={mIdx}
-                          className="bg-slate-50 group-hover:bg-teal-50/50 p-2.5 rounded-2xl border border-slate-100 transition-colors text-center"
+                          className="bg-slate-50 group-hover:bg-teal-50/50 p-2 rounded-xl border border-slate-100 transition-colors text-center"
                         >
                           <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono truncate">
                             {metric.label}
@@ -446,12 +446,12 @@ export default function Projects() {
                     </div>
 
                     {/* Bottom Trigger Action */}
-                    <div className="mt-5 flex items-center justify-between text-xs font-bold text-[#12AA9E]">
+                    <div className="mt-3.5 flex items-center justify-between text-xs font-bold text-[#12AA9E]">
                       <span className="inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                         Lihat Rincian & Lingkup Kemitraan
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </span>
-                      <span className="text-[11px] font-mono text-slate-400">
+                      <span className="text-[10px] font-mono text-slate-400">
                         Detail Solusi &bull; Telkom Group
                       </span>
                     </div>
@@ -464,7 +464,7 @@ export default function Projects() {
 
         {/* Strategic Impact Strip */}
         <Reveal delay={200}>
-          <div className="mt-16 sm:mt-20 rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-8 sm:p-12 text-white shadow-xl border border-slate-800 relative overflow-hidden">
+          <div className="mt-10 sm:mt-12 rounded-[24px] sm:rounded-[30px] bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-6 sm:p-8 text-white shadow-xl border border-slate-800 relative overflow-hidden">
             {/* Background Accent Gradients */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-[#12AA9E]/15 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />

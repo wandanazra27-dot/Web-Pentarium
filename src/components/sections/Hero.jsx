@@ -102,7 +102,7 @@ export default function Hero() {
 
         <div className="marquee-track flex w-max items-center hover:[animation-play-state:paused]">
           {/* Set 1 */}
-          <div className="flex items-center gap-10 sm:gap-16 lg:gap-20 pr-10 sm:pr-16 lg:pr-20 shrink-0">
+          <div className="flex items-center gap-6 sm:gap-10 lg:gap-12 pr-6 sm:pr-10 lg:pr-12 shrink-0">
             {CLIENTS.map((client) => (
               <span
                 key={`s1-${client}`}
@@ -114,7 +114,7 @@ export default function Hero() {
           </div>
           {/* Set 2 (for seamless infinite loop) */}
           <div
-            className="flex items-center gap-10 sm:gap-16 lg:gap-20 pr-10 sm:pr-16 lg:pr-20 shrink-0"
+            className="flex items-center gap-6 sm:gap-10 lg:gap-12 pr-6 sm:pr-10 lg:pr-12 shrink-0"
             aria-hidden="true"
           >
             {CLIENTS.map((client, idx) => (

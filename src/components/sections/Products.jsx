@@ -539,7 +539,7 @@ export default function Products() {
   }, [selectedProduct]);
 
   return (
-    <section id="produk" className="pt-24 pb-20 lg:pt-32 lg:pb-32 bg-slate-50 relative overflow-hidden scroll-mt-20">
+    <section id="produk" className="pt-24 pb-10 lg:pt-32 lg:pb-12 bg-slate-50 relative overflow-hidden scroll-mt-20">
       {/* Decorative Blur Backgrounds */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#12AA9E]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -right-32 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
