@@ -154,7 +154,7 @@ function ProductRow({ product, index }) {
   const isEven = index % 2 === 0;
 
   return (
-    <article className="grid items-center gap-8 border-b border-black/[0.07] py-10 first:pt-0 last:border-0 last:pb-0 sm:gap-12 sm:py-14 md:grid-cols-12 lg:gap-14">
+    <article className="grid items-center gap-8 md:grid-cols-12 lg:gap-14">
       {/* Gambar Produk */}
       <div
         className={`md:col-span-6 overflow-hidden rounded-[22px] sm:rounded-[28px] border border-black/[0.06] shadow-sm bg-slate-100 ${
@@ -200,51 +200,57 @@ function ProductRow({ product, index }) {
 
 export default function Products() {
   return (
-    <section id="produk" className="py-20 lg:py-32 scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[32px] bg-white px-6 py-12 shadow-[0_20px_60px_rgba(0,0,0,0.05)] border border-black/[0.04] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-          <Reveal className="mx-auto mb-12 max-w-2xl text-center sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#12AA9E]/10 text-[#0d7d74] font-bold text-xs uppercase tracking-wider mb-4 border border-[#12AA9E]/25">
-              04. Portofolio Hardware & IoT
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary tracking-tight">
-              Produk <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#12AA9E] to-primary-dark">Pentarium</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-[56ch] text-sm sm:text-base leading-relaxed text-slate-500">
-              Dari pemantauan lingkungan hingga otomasi cerdas, temukan solusi perangkat keras dan telemetri yang dirancang untuk bekerja terukur di dunia nyata.
-            </p>
-          </Reveal>
+    <section id="produk" className="pt-24 pb-20 lg:pt-32 lg:pb-32 bg-slate-50 relative overflow-hidden scroll-mt-20">
+      {/* Decorative Blur Backgrounds */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#12AA9E]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 -right-32 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="mx-auto max-w-5xl">
-            {PRODUCTS.map((product, index) => (
-              <React.Fragment key={product.title}>
-                <Reveal delay={index % 2 === 0 ? 0 : 60}>
-                  <ProductRow product={product} index={index} />
-                </Reveal>
-                {index === 3 && (
-                  <Reveal>
-                    <figure className="relative my-12 overflow-hidden rounded-[24px] sm:my-16 sm:rounded-[30px] shadow-md">
-                      <img
-                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=80"
-                        alt="Rangkaian elektronik sebagai bagian dari solusi IoT Pentarium"
-                        loading="lazy"
-                        className="aspect-[16/7] w-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
-                      <figcaption className="absolute inset-y-0 left-0 flex max-w-xl flex-col justify-center px-8 text-white sm:px-12">
-                        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#6FD3CB]">
-                          IoT &bull; Hardware &bull; Telemetry
-                        </p>
-                        <p className="mt-3 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
-                          Dirancang presisi untuk bekerja di dunia nyata.
-                        </p>
-                      </figcaption>
-                    </figure>
-                  </Reveal>
-                )}
-              </React.Fragment>
-            ))}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <Reveal className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#12AA9E]/10 text-[#0d7d74] font-bold text-xs uppercase tracking-wider mb-4 border border-[#12AA9E]/25">
+            04. Portofolio Hardware & IoT
           </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-secondary tracking-tight">
+            Produk <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#12AA9E] to-primary-dark">Pentarium</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-[56ch] text-sm sm:text-base leading-relaxed text-slate-500">
+            Dari pemantauan lingkungan hingga otomasi cerdas, temukan solusi perangkat keras dan telemetri yang dirancang untuk bekerja terukur di dunia nyata.
+          </p>
+        </Reveal>
+
+        {/* Product Items List */}
+        <div className="space-y-12 sm:space-y-16">
+          {PRODUCTS.map((product, index) => (
+            <React.Fragment key={product.title}>
+              <Reveal delay={index % 2 === 0 ? 0 : 60}>
+                <div className="rounded-[28px] sm:rounded-[32px] bg-white p-6 sm:p-10 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-slate-100/80 transition-all hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+                  <ProductRow product={product} index={index} />
+                </div>
+              </Reveal>
+              {index === 3 && (
+                <Reveal>
+                  <figure className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] shadow-md my-4 sm:my-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=80"
+                      alt="Rangkaian elektronik sebagai bagian dari solusi IoT Pentarium"
+                      loading="lazy"
+                      className="aspect-[16/6] sm:aspect-[16/5] w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" />
+                    <figcaption className="absolute inset-y-0 left-0 flex max-w-2xl flex-col justify-center px-8 text-white sm:px-14">
+                      <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#6FD3CB]">
+                        IoT &bull; Hardware &bull; Telemetry
+                      </p>
+                      <p className="mt-3 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
+                        Dirancang presisi untuk bekerja di dunia nyata.
+                      </p>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              )}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </section>
